@@ -42,6 +42,7 @@ class TestCoffee:
     def test_coffee_returns_no_of_orders(self):
         '''Coffee class has method num_orders that returns total count of orders for coffee instance'''
         espresso = Coffee("Espresso")
+        latte = Coffee("Latte")
         price = 10.0
         customer1 = Customer("customer1")
         customer2 = Customer("customer2")
@@ -52,10 +53,12 @@ class TestCoffee:
         Order(customer3, espresso, price)
 
         assert espresso.num_orders() == 3
+        assert latte.num_orders() == 0
 
     def test_coffee_average_price(self):
         '''Coffee class calculates average price for this instance'''
         espresso = Coffee("Espresso")
+        latte = Coffee("Latte")
         price = 10.0
         customer1 = Customer("customer1")
         customer2 = Customer("customer2")
@@ -66,3 +69,4 @@ class TestCoffee:
         Order(customer3, espresso, 6.5)
 
         assert espresso.average_price() == (price + 9.5 + 6.5) / 3
+        assert latte.average_price() == 0

@@ -35,5 +35,6 @@ class Coffee:
             if self == orders.coffee:
                 average += orders.price
                 count += 1 
-
+        if count == 0:
+            return 0
         return average / count
