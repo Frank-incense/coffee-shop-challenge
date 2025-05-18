@@ -10,6 +10,15 @@ class Coffee:
     @property
     def name(self):
         return self._name
+    
     @name.setter
     def name(self, name):
-        raise Exception(f"Name cann not be changed once initialised")
+        raise Exception(f"Name can not be changed once initialised")
+    
+    def orders(self):
+        from order import Order
+        return [orders for orders in Order.all if self == orders.coffee]
+    
+    def customers(self):
+        from order import Order
+        return [orders.customer for orders in Order.all if self == orders.coffee]
