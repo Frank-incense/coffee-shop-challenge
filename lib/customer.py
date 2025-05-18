@@ -1,7 +1,9 @@
 class Customer:
+    all = []
     def __init__(self, name):
         if isinstance(name, str) and len(name):
             self._name = name
+            type(self).all.append(self)
         else:
             raise Exception(f"{name} must be a string of length 1 - 15 ")
     @property
