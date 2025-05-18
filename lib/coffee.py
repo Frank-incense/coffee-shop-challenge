@@ -22,3 +22,18 @@ class Coffee:
     def customers(self):
         from order import Order
         return [orders.customer for orders in Order.all if self == orders.coffee]
+    
+    def num_orders(self):
+        from order import Order
+        return len([order for order in Order.all if self == order.coffee])
+    
+    def average_price(self):
+        from order import Order
+        average = 0
+        count = 0
+        for orders in Order.all:
+            if self == orders.coffee:
+                average += orders.price
+                count += 1 
+
+        return average / count

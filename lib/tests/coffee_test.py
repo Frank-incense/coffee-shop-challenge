@@ -1,3 +1,5 @@
+from customer import Customer
+from order import Order
 from coffee import Coffee
 import pytest
 
@@ -19,9 +21,6 @@ class TestCoffee:
 
     def test_coffee_has_orders(self):
         '''Test Coffee class has method orders that returns list of orders'''
-        from customer import Customer
-        from order import Order
-
         frank = Customer("Frank")
         espresso = Coffee("Espresso")
         price = 10.0
@@ -32,9 +31,6 @@ class TestCoffee:
 
     def test_coffee_has_coffees(self):
         '''Test Coffee class has method orders that retruns list of orders'''
-        from customer import Customer
-        from order import Order
-
         frank = Customer("Frank")
         espresso = Coffee("Espresso")
         price = 10.0
@@ -43,4 +39,30 @@ class TestCoffee:
 
         assert frank in espresso.customers()
 
-    
+    def test_coffee_returns_no_of_orders(self):
+        '''Coffee class has method num_orders that returns total count of orders for coffee instance'''
+        espresso = Coffee("Espresso")
+        price = 10.0
+        customer1 = Customer("customer1")
+        customer2 = Customer("customer2")
+        customer3 = Customer("customer3")
+
+        Order(customer1, espresso, price)
+        Order(customer2, espresso, price)
+        Order(customer3, espresso, price)
+
+        assert espresso.num_orders() == 3
+
+    def test_coffee_average_price(self):
+        '''Coffee class calculates average price for this instance'''
+        espresso = Coffee("Espresso")
+        price = 10.0
+        customer1 = Customer("customer1")
+        customer2 = Customer("customer2")
+        customer3 = Customer("customer3")
+
+        Order(customer1, espresso, price)
+        Order(customer2, espresso, 9.5)
+        Order(customer3, espresso, 6.5)
+
+        assert espresso.average_price() == (price + 9.5 + 6.5) / 3

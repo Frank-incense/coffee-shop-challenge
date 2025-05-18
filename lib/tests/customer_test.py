@@ -44,4 +44,10 @@ class TestCustomer:
 
         assert espresso in frank.coffees()
 
-    
+    def test_customer_can_create_order(self):
+        '''Customer has method create_order that intantiates a new order'''
+        frank = Customer("Frank")
+        espresso = Coffee("Espresso")
+        price = 10.0
+
+        assert frank.create_order(espresso, price) in Order.all

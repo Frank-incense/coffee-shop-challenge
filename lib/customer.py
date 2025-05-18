@@ -26,3 +26,8 @@ class Customer:
     def coffees(self):
         from order import Order
         return [order.coffee for order in Order.all if self == order.customer]
+    
+    def create_order(self, coffee, price):
+        from order import Order
+        return Order(self, coffee, price)
+        
