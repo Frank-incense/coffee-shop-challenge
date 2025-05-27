@@ -1,11 +1,11 @@
 class Coffee:
     all = []
     def __init__(self, name):
-        if len(name) > 2:
+        if isinstance(name, str) and len(name) > 2:
             self._name = name
             type(self).all.append(self)
         else:
-            raise ValueError("Name should be atleast 3 chararcters.")
+            raise ValueError(f"{name} should be atleast 3 string chararcters.")
 
     @property
     def name(self):
@@ -13,7 +13,7 @@ class Coffee:
     
     @name.setter
     def name(self, name):
-        raise ValueError(f"Name can not be changed once initialised")
+        raise ValueError(f"{self.name} can not be changed once initialised")
     
     def orders(self):
         from order import Order
