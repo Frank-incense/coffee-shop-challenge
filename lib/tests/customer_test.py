@@ -10,16 +10,16 @@ class TestCustomer:
 
     def test_name_is_is_valid(self):
         '''Name is a string between 1 and 15 characters in length.'''
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Customer(0)
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Customer("")
 
     def test_Customer_name_change(self):
         '''Customer class type checks name to be string.'''
         frank = Customer("Frank")
     
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             frank.name = 0
             len(frank.name) == 0
             frank.name = " "

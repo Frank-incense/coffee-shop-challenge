@@ -10,13 +10,13 @@ class TestCoffee:
 
     def test_validates_name(self):
         """Coffee class Validates name has atleast 3 chars."""
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Coffee("na")
 
     def test_name_is_immutable(self):
         """Coffee class name is immutable once initialised."""
         bean = Coffee("name")
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             bean.name = "Other name"
 
     def test_coffee_has_orders(self):

@@ -5,7 +5,7 @@ class Coffee:
             self._name = name
             type(self).all.append(self)
         else:
-            raise Exception("Name should be atleast 3 chararcters.")
+            raise ValueError("Name should be atleast 3 chararcters.")
 
     @property
     def name(self):
@@ -13,7 +13,7 @@ class Coffee:
     
     @name.setter
     def name(self, name):
-        raise Exception(f"Name can not be changed once initialised")
+        raise ValueError(f"Name can not be changed once initialised")
     
     def orders(self):
         from order import Order

@@ -13,7 +13,7 @@ class Order:
             self._price = price
             type(self).all.append(self)
         else:
-            raise Exception("Ensure arguments are of the correct type")
+            raise ValueError("Ensure arguments are of the correct type")
     
     @property   
     def price(self):
@@ -21,4 +21,4 @@ class Order:
     
     @price.setter
     def price(self, price):
-        raise Exception("Price cannot be changed once initialised")
+        raise ValueError("Price cannot be changed once initialised")

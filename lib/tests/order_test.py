@@ -20,7 +20,7 @@ class TestOrder:
         espresso = Coffee("Espresso")
         price = 10.0
 
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Order("frank", espresso, price)
     
     def test_order_validates_coffee(self):
@@ -28,7 +28,7 @@ class TestOrder:
         frank = Customer("Frank")
         price = 10.0
 
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Order(frank, "espresso", price)
 
     def test_order_validates_price(self):
@@ -37,9 +37,9 @@ class TestOrder:
         espresso = Coffee("Espresso")
         price = 10
 
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Order(frank, espresso, price)
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Order(frank, espresso, "price")
     
     def test_order_validates_price_amount(self):
@@ -48,7 +48,7 @@ class TestOrder:
         espresso = Coffee("Espresso")
         price = 11.0
         
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             Order(frank, espresso, price)
     
     def test_order_price_immutable(self):
@@ -58,6 +58,6 @@ class TestOrder:
         price = 10.0
         order = Order(frank, espresso, price)
         
-        with pytest.raises(Exception):
+        with pytest.raises(ValueError):
             order.price = 5.0
 
