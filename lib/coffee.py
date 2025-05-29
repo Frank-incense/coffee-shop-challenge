@@ -13,7 +13,7 @@ class Coffee:
     
     @name.setter
     def name(self, name):
-        raise ValueError(f"{self.name} can not be changed once initialised")
+        raise AttributeError(f"{self.name} can not be changed once initialised")
     
     def orders(self):
         from order import Order
